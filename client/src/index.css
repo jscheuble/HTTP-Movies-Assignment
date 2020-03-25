@@ -53,31 +53,30 @@ body {
   width: 75%;
   margin: 1rem auto;
 }
-.save-button {
+
+.btn {
   position: absolute;
+  right: 25px;
+  border: 1px solid grey;
+  padding: 5px 10px;
+  background-color: lightseagreen;
+}
+
+.btn:hover {
+  background-color: green;
+  color: white;
+}
+
+.save {
   top: 25px;
-  right: 25px;
-  border: 1px solid grey;
-  padding: 5px 10px;
-  background-color: lightseagreen;
-}
-.save-button:hover {
-  background-color: green;
-  color: white;
 }
 
-.update-button {
-  position: absolute;
+.update {
   top: 75px;
-  right: 25px;
-  border: 1px solid grey;
-  padding: 5px 10px;
-  background-color: lightseagreen;
 }
 
-.update-button:hover {
-  background-color: green;
-  color: white;
+.delete {
+  top: 125px;
 }
 
 .home-button {
