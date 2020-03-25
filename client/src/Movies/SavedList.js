@@ -1,7 +1,13 @@
-import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import React from "react";
+import { NavLink, Link, useHistory } from "react-router-dom";
 
 function SavedList({ list }) {
+  const history = useHistory();
+
+  const routeToForm = () => {
+    history.push("/add-movie");
+  };
+
   return (
     <div className="saved-list">
       <h3>Saved Movies:</h3>
@@ -18,6 +24,9 @@ function SavedList({ list }) {
       })}
       <div className="home-button">
         <Link to="/">Home</Link>
+      </div>
+      <div className="new btn" onClick={routeToForm}>
+        Add New Movie
       </div>
     </div>
   );

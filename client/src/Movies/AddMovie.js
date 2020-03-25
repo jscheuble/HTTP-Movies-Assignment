@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 const initial = {
@@ -11,6 +12,7 @@ const initial = {
 
 const AddMovie = props => {
   const [newMovie, setNewMovie] = useState(initial);
+  const history = useHistory();
 
   const handleChange = e => {
     setNewMovie({
@@ -43,12 +45,15 @@ const AddMovie = props => {
     });
     axios
       .post("http://localhost:5000/api/movies", newMovie)
-      .then(res => props.setMovieList(res))
+      .then(res => {
+        props.setMovieList(res.data);
+        history.push("/");
+      })
       .catch(err => console.log(err));
   };
 
   return (
-    <form onSubmit={addNewMovie}>
+    <form className="edit-form" onSubmit={addNewMovie}>
       <input
         type="text"
         name="title"

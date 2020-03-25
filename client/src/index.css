@@ -56,7 +56,7 @@ body {
 
 .btn {
   position: absolute;
-  right: 25px;
+
   border: 1px solid grey;
   padding: 5px 10px;
   background-color: lightseagreen;
@@ -69,19 +69,27 @@ body {
 
 .save {
   top: 25px;
+  right: 25px;
 }
 
 .update {
   top: 75px;
+  right: 25px;
 }
 
 .delete {
   top: 125px;
+  right: 25px;
 }
 
 .home-button {
   padding: 5px 10px;
   background-color: lightskyblue;
+}
+
+.new {
+  top: 65px;
+  right: 10px;
 }
 
 .movie-warning {
