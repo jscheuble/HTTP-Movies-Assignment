@@ -11,7 +11,7 @@ const initial = {
 const UpdateMovie = props => {
   const [movie, setMovie] = useState(initial);
   const match = useRouteMatch();
-  //const history = useHistory();
+  const history = useHistory();
 
   const handleChange = e => {
     setMovie({
@@ -41,9 +41,10 @@ const UpdateMovie = props => {
             return e;
           }
         });
-        console.log(res.data);
-        console.log(newList);
         props.setMovieList(newList);
+        console.log(res);
+        setMovie(initial);
+        history.push("/");
       })
       .catch(err => console.log(err));
   };
