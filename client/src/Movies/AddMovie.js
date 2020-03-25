@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 
 const initial = {
   id: 0,
@@ -8,7 +9,7 @@ const initial = {
   stars: []
 };
 
-const AddMovie = () => {
+const AddMovie = props => {
   const [newMovie, setNewMovie] = useState(initial);
 
   const handleChange = e => {
@@ -34,8 +35,20 @@ const AddMovie = () => {
     });
   };
 
+  const addNewMovie = e => {
+    e.preventDefault();
+    setNewMovie({
+      ...newMovie,
+      id: Date.now()
+    });
+    axios
+      .post("http://localhost:5000/api/movies", newMovie)
+      .then(res => props.setMovieList(res))
+      .catch(err => console.log(err));
+  };
+
   return (
-    <form>
+    <form onSubmit={addNewMovie}>
       <input
         type="text"
         name="title"
@@ -64,6 +77,7 @@ const AddMovie = () => {
         placeholder="stars"
         value={newMovie.stars}
       />
+      <button>add new movie!</button>
     </form>
   );
 };
