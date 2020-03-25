@@ -39,11 +39,12 @@ function Movie({
     axios
       .delete(`http://localhost:5000/api/movies/${match.params.id}`)
       .then(res => {
-        console.log("delete", res);
+        //check saved list for movie, removes if it is there
         const newSavedList = savedList.filter(e => {
           return e.id !== Number(match.params.id);
         });
         setSavedList(newSavedList);
+        //set new list to reflect deleted item
         const newList = movies.filter(e => {
           return e.id !== Number(match.params.id);
         });
